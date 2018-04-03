@@ -1,0 +1,238 @@
+nav.navbar {
+    background-color: rgba(55, 102, 189, 0.8);
+    height: 85px;
+}
+a.navbar-brand {
+    padding: 0px;
+}
+
+a.navbar-brand img {
+    height: 85px;
+}
+
+a.navbar-brand p {
+    color: #f3f3f3;
+    font-weight: 600;
+}
+
+a.navbar-brand p.sub {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-size: 15px;
+}
+
+a.navbar-brand p.titulo {
+    margin-top: 4px;
+    font-size: 25px;
+}
+
+nav.navbar-fixed-top {
+    background-color: rgba(55, 102, 189,1);
+    box-shadow: 0px 1px 20px black;
+    border-radius: 0px;
+}
+
+.dropdown-menu>li>a {
+    color:#fff;
+    
+}
+.dropdown ul.dropdown-menu {
+    background-color:rgba(55, 102, 189, 1);
+    border-radius:4px;
+    box-shadow:none;
+    margin-top:-1px;
+   /* max-width:130px!important;
+    min-width: 130px!important;*/
+}
+usermenu.ul {
+    background-color:rgba(41, 76, 141, 0.9);
+    border-radius:4px;
+    box-shadow:none;
+    margin-top:-1px;
+    max-width:200px!important;
+    min-width: 200px!important;
+}
+.dropdown ul.dropdown-menu:before {
+    content: "";
+    /*border-bottom: 10px solid rgba(55, 102, 189, 0.8);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;*/
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    z-index: 10;
+
+}
+.nav .open>a{
+    background-color: #294c8d!important;
+    border-color: #337ab7;
+    height:84px;
+    color:#fff;
+    width:130px;
+}
+.nav a {
+    color: #fff!important;
+    text-decoration: none;
+    min-width:130px;
+
+}
+.nav a.dropdown-toggle {
+    color: #fff!important;
+    text-decoration: none;
+
+}
+.usermenu {
+
+    width:190px!important;
+
+}
+.nav a:hover{
+    background-color: #294c8d!important;
+    }
+.dropdown .li a:hover{
+    background-color: #294c8d!important;
+    }
+
+.nav>li>a:focus {
+    text-decoration: none;
+    background-color:#294c8d!important;
+}
+.navbar-nav>li>a {
+    line-height:84px;
+    height:84px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.icons-list{
+font-size:1.5em;
+color:#555;
+background: transparent;
+border:none;
+}
+.row-list-heading {
+    background-color: #ffffff!important;
+    box-shadow: 0px 1px 10px grey!important;
+    border-radius: 4px 4px 4px 4px!important;
+    margin-top: 30px!important;
+    height:40px!important;
+}
+.row-list {
+    background-color: #ffffff;
+    box-shadow: 0px 1px 20px grey;
+    border-radius: 4px 4px 4px 4px;
+    margin-top: 10px;
+    height: 80px;
+    }
+.row-list h4 {
+    margin-top: 32px!important;
+    margin-bottom: 0px;
+    line-height: 0.6em;
+    font-weight: 600;
+}
+
+.row-list .p-status {
+    margin-top: 28px;
+    margin-bottom: 0px;
+    font-weight: 600;
+}
+
+.row-list button {
+    margin-top: 24px;
+}
+.row-list-heading h5 {
+    margin-top: 13px;
+    font-weight: 600;
+}
+
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 7px 0 0 13px;
+  pointer-events: none;
+  color: #aaa;
+  transition: all 200ms;
+}
+
+.form-control:focus + .form-control-placeholder {
+  color: #000;
+  font-size: 75%;
+  top: -25px;
+}
+
+.fitro-switch > input[type="checkbox"] {
+    display: none;
+}
+
+.fitro-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative;
+    width: 40px;
+
+}
+
+.fitro-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.fitro-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.fitro-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+
+}
+.fitro-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+.fitro-switch {
+    line-height:40px;
+
+    margin-right:5px;
+    margin-left:5px;
+}
+.input-group-addon {
+    padding: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 0px!important;
+    color: #555;
+    text-align: center;
+    background-color:transparent!important ;
+    border: none!important;
+    border-radius: 4px;
+}
+.input-group-addon, .input-group-btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: bottom!important;
+}
+.modal-header{
+    background-color:rgba(55, 102, 189,1);
+    color:#fff;}
+.modal-header .close {
+    color: #fff;
+}
+input[type=checkbox], input[type=radio]{
+    margin:0;}

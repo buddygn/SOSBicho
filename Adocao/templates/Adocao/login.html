@@ -1,0 +1,62 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/adocao/material.min.css">
+    <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
+    <script defer src="/static/adocao/material.min.js"></script>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</head>
+<body style="background: url({% static 'imagens/fundo_color.jpg' %}) no-repeat center center fixed; background-size: cover;">
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        <div class="mdl-grid">
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell mdl-cell--4-col" align="center">
+                <div class="mdl-card mdl-shadow--2dp" style="background: rgba(255, 255, 255,.08); padding: 40px;">
+                  <div class="" style="margin-top: 25px;" align="center">
+                    <img src="{% static 'imagens/logo_login.png' %}"/>
+                  </div>
+                  <div class="mdl-card__supporting-text" style="width:100%;">
+
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input style="color: rgba(255, 255, 255, .4); border-bottom: 1px solid rgba(255, 255, 255, .1);" class="mdl-textfield__input" type="text" id="username" name="username" >
+                        <label class="mdl-textfield__label" for="username" >Digite seu login</label>
+                      </div>
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input style="color: rgba(255, 255, 255, .4); border-bottom: 1px solid rgba(255, 255, 255, .1);" class="mdl-textfield__input" type="password" id="password" name="password" >
+                        <label class="mdl-textfield__label" for="password" >Digite sua senha</label>
+                      </div>
+                      <br/>
+                     <!-- PASS RESET -->
+                      <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col" style="min-height: 35px; color: rgba(255, 255, 255, .4);">
+                            {% if error == True %}
+                            <p>Login Inválido</p>
+                            {% endif %}
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <button style="width: 100%;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+                                ENTRAR
+                            </button>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <button style="width: 100%;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+                                SOU NOVO AQUI
+                            </button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+
+
+            </div>
+            <div class="mdl-layout-spacer"></div>
+        </div>
+    </form>
+</body>
+</html>

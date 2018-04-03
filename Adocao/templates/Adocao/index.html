@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="/static/adocao/css/index.css" type="text/css" />
+{% endblock %}
+
+{% block menu_link %}
+  {% include 'adocao/menu.html' %}
+{% endblock %}
+
+{% block extrajs %}
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="row row-index-heading">
+        <div class="col-md-7" align="left">
+            <h5>NOME </h5>
+        </div>
+        <div class="col-md-2" align="center">
+            <h5>RAÇA</h5>
+        </div>
+
+        <div class="col-md-3" align="right">
+            <a type="button" class="btn btn-success" style="margin-top:4px;" href="{% url 'newAnimal' %}">
+                <span class="glyphicon glyphicon-plus"></span>
+                Cadastrar novo animal
+            </a>
+        </div>
+    </div>
+    <div id="index-wrapper">
+
+    </div>
+{% endblock %}

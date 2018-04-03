@@ -10,15 +10,12 @@ from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url='/SOSBicho/login/')
 def index(request):
-    formulario = '''
-            <form action="." method="post">
-                <input type="text" name="name" maxlength="100" />
-                <button type="submit">Enviar</button>
-            </form>
-            '''
-    return HttpResponse(formulario)
+    return render(request, 'adocao/index.html')
 
 
+@login_required(login_url='/SOSBicho/login/')
+def newAnimal(request):
+    return render(request, 'adocao/index.html')
 
 def loginView(request):
     if request.method == 'POST':

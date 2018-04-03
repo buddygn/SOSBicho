@@ -6,9 +6,10 @@ from . import views
 
 urlpatterns = [
     url(r'^SOSBicho/$', views.index, name="index"),
+    url(r'^SOSBicho/novo$', views.newAnimal, name="newAnimal"),
 
     url(r'^SOSBicho/login', views.loginView, name="loginView"),
-    url(r'^SOSBicho/logout', auth_views.logout, {'next_page': 'logoutView'}, name="logoutView"),
+    url(r'^SOSBicho/logout', auth_views.logout, {'next_page': 'loginView'}, name="logoutView"),
 
 
 

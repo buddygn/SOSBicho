@@ -1,0 +1,27 @@
+{% load staticfiles %}
+ <ul class="nav navbar-nav navbar-right">
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle usermenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+      <div class="c-user-bar">
+            <div class="c-user-bar__avatar-wrapper">
+               <img src="{%  static 'imagens/user-icon.png' %}" class="c-user-bar__avatar" />
+            </div>
+            <div class="c-user-bar__user-wrapper">
+                <span class="c-user-bar__nickname">
+                {% if request.user.first_name %}
+                    {{ request.user.first_name }} {{ request.user.last_name }}
+                {% else %}
+                    {{ request.user }}
+                {% endif %}
+                </span>
+            </div>
+        <span class="glyphicon glyphicon-chevron-down" style="left:-25px"></span>
+        </div>
+
+        </a>
+    <ul class="dropdown-menu" style="min-width:190px!important;">
+        <li role="separator" class="divider"></li>
+        <li><a class="usermenu" href="{% url 'logoutView' %}">Logout</a></li>
+    </ul>
+</li>
+</ul>

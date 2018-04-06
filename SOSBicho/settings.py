@@ -26,7 +26,7 @@ SECRET_KEY = '7y%_s3r1i*j8nnslg!o1n91*fb_7m6l34@q8-_6#c=4_p^d-bm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 ADMINS = (
      ('Geison Nervo', 'buddygn@gmail.com'),
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'SOSBicho.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'SOSBicho/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'SOSBicho/templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block menu_link %}
+  {% include 'adocao/menu.html' %}
+{% endblock %}
+
+{% load staticfiles %}
+
+{% block extracss %}
+    <link href="{% static 'cropper.min.css' %}" rel="stylesheet" type="text/css" xmlns="http://www.w3.org/1999/html"/>
+    <link rel="stylesheet" href="{% static 'adocao/css/animal.css' %}" type="text/css" />
+{% endblock %}
+
+{% block extrajs %}
+    <script src="{% static 'cropper.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'jquery.mask.js' %}" type="text/javascript"></script>
+    <script src="{% static 'adocao/js/Animal.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+    {% for field in form %}
+        {% if field.errors %}
+            <div class="alert alert-danger">
+                <strong><li><a href="#id_{{ field.name }}" class="error">{{ field.label }}: {{ field.errors|striptags }}</a></li></strong>
+            </div>
+        {% endif %}
+	{% endfor %}
+
+    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+        <div class="row" style="background-color: #ffffff; border-radius: 4px; margin-top: 10px;">
+            <div class="col-md-12">
+                <h3>Adotar Animal</h3>
+            </div>
+            <div class="col-md-12">
+               <h4>Informações do animal</h4>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group" align="center">
+                    {% if form.instance.foto %}
+                        <img id="teste-img" width="350" height="350" src="{{ form.instance.foto.url }}" />
+                    {% else %}
+                        <img id="teste-img" width="350" height="350" src="{% static 'imagens/default.png' %}"/>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            <div class="col-md-6">
+               <div class="form-group">
+                   {{form.nome.label_tag}}
+                   {{form.nome}}
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                   {{form.apelido.label_tag}}
+                   {{form.apelido}}
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="form-group">
+                   {{form.especie.label_tag}}
+                   {{form.especie}}
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="form-group">
+                   {{form.raca.label_tag}}
+                   {{form.raca}}
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="form-group">
+                   {{form.nascimento.label_tag}}
+                   {{form.nascimento}}
+               </div>
+            </div>
+            <div class="col-md-12">
+               <div class="form-group">                  																			
+                   {{form.observacao.label_tag}}
+                   {{form.observacao}}
+               </div>
+            </div>
+            {% if form.instance.adotado is False %}
+            <div class="col-md-12" align="right" style="margin-bottom: 20px;">
+               <button type="submit" class="btn btn-lg btn-primary" title="Adotar">
+                   <span class="glyphicon glyphicon-ok"></span>
+                   Adotar
+               </button>
+
+            {% endif %}
+            
+
+                <a href="{% url 'index' %}">
+                    <button type="button" class="btn btn-lg btn-danger" title="Cancelar">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        Cancelar
+                    </button>
+                </a>
+            </div>
+
+        </div>
+    </form>
+
+{% endblock %}

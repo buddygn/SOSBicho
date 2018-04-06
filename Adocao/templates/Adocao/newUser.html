@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block menu_link %}
+  {% include 'adocao/menu.html' %}
+{% endblock %}
+{% block content %}
+    {% for field in form %}
+        {% if field.errors %}
+            <div class="alert alert-danger">
+                <strong><li><a href="#id_{{ field.name }}" class="error">{{ field.label }}: {{ field.errors|striptags }}</a></li></strong>
+            </div>
+        {% endif %}
+	{% endfor %}
+
+    <form action="" method="post" autocomplete="off">{% csrf_token %}
+        <div class="row" style="background-color: #ffffff; border-radius: 4px; margin-top: 10px;">
+            <div class="col-md-12">
+                <h3>Novo Usuario</h3>
+            </div>
+            <div class="col-md-12">
+               <h4>Informações do Usuario</h4>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                   {{form.first_name.label_tag}}
+                   {{form.first_name}}
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                   {{form.last_name.label_tag}}
+                   {{form.last_name}}
+               </div>
+            </div>
+
+            <div class="col-md-12">
+               <div class="form-group">
+                   {{form.email.label_tag}}
+                   {{form.email}}
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                   {{form.username.label_tag}}
+                   {{form.username}}
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                   {{form.password.label_tag}}
+                   {{form.password}}
+               </div>
+            </div>
+        </div>
+        <div class="row" style="background-color: #ffffff; border-radius: 4px; margin-top:15px;">
+            <div class="col-md-12" align="right" style="margin-top: 20px;">
+                <a href="{% url 'index'%}">
+                    <button type="button" class="btn btn-lg btn-danger" title="Cancelar" style="margin-bottom: 20px;">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        Cancelar
+                    </button>
+                </a>
+
+               <button type="submit" class="btn btn-lg btn-primary" title="Salvar" style="margin-bottom: 20px;">
+                   <span class="glyphicon glyphicon-ok"></span>
+                   Salvar
+               </button>
+              </div>
+        </div>
+    </form>
+
+{% endblock %}

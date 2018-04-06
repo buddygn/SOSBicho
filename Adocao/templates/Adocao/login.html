@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="/static/adocao/material.min.css">
+    <link rel="stylesheet" href="{% static 'adocao/css/material.min.css' %}">
     <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
-    <script defer src="/static/adocao/material.min.js"></script>
+    <script defer src="{% static 'adocao/js/material.min.js' %}"></script>
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 </head>
@@ -24,11 +24,11 @@
                   <div class="mdl-card__supporting-text" style="width:100%;">
 
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input style="color: rgba(255, 255, 255, .4); border-bottom: 1px solid rgba(255, 255, 255, .1);" class="mdl-textfield__input" type="text" id="username" name="username" >
+                        <input style="color: rgba(255, 255, 255, .4); border-bottom: 1px solid rgba(255, 255, 255, .1);" class="mdl-textfield__input" type="text" id="username" name="username" autocomplete="off">
                         <label class="mdl-textfield__label" for="username" >Digite seu login</label>
                       </div>
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input style="color: rgba(255, 255, 255, .4); border-bottom: 1px solid rgba(255, 255, 255, .1);" class="mdl-textfield__input" type="password" id="password" name="password" >
+                        <input style="color: rgba(255, 255, 255, .4); border-bottom: 1px solid rgba(255, 255, 255, .1);" class="mdl-textfield__input" type="password" id="password" name="password" autocomplete="off">
                         <label class="mdl-textfield__label" for="password" >Digite sua senha</label>
                       </div>
                       <br/>
@@ -40,14 +40,15 @@
                             {% endif %}
                         </div>
                         <div class="mdl-cell mdl-cell--12-col">
-                            <button style="width: 100%;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+                            <button  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
                                 ENTRAR
                             </button>
                         </div>
                         <div class="mdl-cell mdl-cell--12-col">
-                            <button style="width: 100%;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+                           <a type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colore"  href="{% url 'newUser' %}">
+
                                 SOU NOVO AQUI
-                            </button>
+                            </a>
                         </div>
                       </div>
                   </div>

@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block extracss %}
-    <link rel="stylesheet" href="/static/adocao/css/index.css" type="text/css" />
+    <link rel="stylesheet" href="{% static 'adocao/css/animal.css' %}" type="text/css" />
 {% endblock %}
 
 {% block menu_link %}
@@ -15,22 +15,63 @@
 
 
 {% block content %}
-    <div class="row row-index-heading">
-        <div class="col-md-7" align="left">
+    <div class="row row-animal-heading">
+        <div class="col-md-6" align="left">
             <h5>NOME </h5>
+        </div>
+        <div class="col-md-2" align="center">
+            <h5>ESPECIE</h5>
         </div>
         <div class="col-md-2" align="center">
             <h5>RAÇA</h5>
         </div>
 
-        <div class="col-md-3" align="right">
+        <div class="col-md-2" align="right">
             <a type="button" class="btn btn-success" style="margin-top:4px;" href="{% url 'newAnimal' %}">
                 <span class="glyphicon glyphicon-plus"></span>
-                Cadastrar novo animal
+                Novo animal
             </a>
         </div>
     </div>
     <div id="index-wrapper">
 
     </div>
+
+    {% for animal in animais %}
+        <div class="row row-animal" style="{% if animal.adotado %}filter: grayscale(100%) opacity(60%);{% endif %}">
+            <div class="col-md-1">
+               {% if animal.foto %}
+                    <img src="{{animal.foto.url}}"/>
+               {% else %}
+                    <img src="{% static 'imagens/default.png' %}"/>
+               {% endif %}
+            </div>
+            <div class="col-md-5">
+                <h4>{{ animal.nome }} - {{ animal.apelido}}</h4>
+            </div>
+            <div class="col-md-2" align="center">
+                <h4>{{animal.especie}}</h4>
+            </div>
+            <div class="col-md-2" align="center">
+                <h4> {{animal.raca}}</h4>
+            </div>
+            {% if request.user == animal.usuarioAlteracao %}
+            <div class="col-md-2" align="right">
+                 <a href="{% url 'editAnimal' idAnimal=animal.id %}"> <button class="icons-list" type="button"  title="Editar">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button></a>
+                <a href="{% url 'delAnimal' idAnimal=animal.id %}"> <button class="icons-list" type="button"  title="Deletar">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button></a>
+            </div>
+            {%  else %}
+            <div class="col-md-2" align="right">
+                 <a href="{% url 'takeAnimal' idAnimal=animal.id %}"> <button class="icons-list" type="button"  title="Visualizar">
+                    <span class="glyphicon glyphicon-heart"></span>
+                </button></a>
+            </div>
+            {% endif %}
+
+        </div>
+    {% endfor %}
 {% endblock %}

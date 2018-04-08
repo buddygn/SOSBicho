@@ -33,7 +33,7 @@ class Animal(models.Model):
     adotado = models.BooleanField(u'Adotado', default=False)
     usuarioAdotou = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='usuarioAdotou')
     foto = models.ImageField(u'Logo', max_length=350, null=True, blank=True, upload_to=path_and_rename)
-    usuarioAlteracao = models.ForeignKey(User, on_delete=models.CASCADE, related_name='usuarioAlteracao')
+    usuarioAlteracao = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='usuarioAlteracao')
 
     def __str__(self):
         return self.nome

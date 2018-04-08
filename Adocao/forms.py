@@ -26,8 +26,8 @@ class AnimalForm(ModelForm):
             'observacao': Textarea(attrs={'rows': 3}),
         }
 
+
     def save(self, commit=True):
-        print('user',self.user)
         animal = super(AnimalForm, self).save(commit=False)
         animal.usuarioAlteracao = self.user
         animal = super(AnimalForm, self).save()

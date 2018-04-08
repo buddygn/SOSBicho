@@ -16,6 +16,7 @@ from Adocao.models import Animal
 @login_required(login_url='loginView')
 def index(request):
     animais = Animal.objects.all()
+    print(animais.values('nome', 'usuarioAlteracao'))
     return render(request, 'adocao/index.html', {'animais': animais})
 
 
@@ -24,7 +25,9 @@ def newAnimal(request):
     if request.method == 'POST':
         form = AnimalForm(request, request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            animal = form.save(commit=False)
+            animal.usuarioAlteracao = request.user
+            animal.save()
             return HttpResponseRedirect(reverse('index'))
     else:
         form = AnimalForm(request)

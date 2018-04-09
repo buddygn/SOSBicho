@@ -68,7 +68,8 @@ def takeAnimal(request, idAnimal):
 def delAnimal(request, idAnimal):
     animal = get_object_or_404(Animal, pk=idAnimal)
     animal.delete()
-    index(request)
+    animais = Animal.objects.all()
+    return render(request, 'adocao/index.html', {'animais': animais})
 
 
 #--Controle de Usuarios

@@ -21,13 +21,13 @@ class AnimalForm(ModelForm):
 
     class Meta:
         model = Animal
-        exclude = ['usuarioAlteracao']
+        exclude = [ 'usuarioAlteracao']
         widgets = {
             'observacao': Textarea(attrs={'rows': 3}),
         }
 
-
     def save(self, commit=True):
+        print('user',self.user)
         animal = super(AnimalForm, self).save(commit=False)
         animal.usuarioAlteracao = self.user
         animal = super(AnimalForm, self).save()
@@ -44,13 +44,14 @@ class AnimalForm(ModelForm):
             cropped_image = image.crop((x, y, w + x -1, h + y -1 ))
             resized_image = cropped_image.resize((300, 300), Image.ANTIALIAS)
             resized_image.save(animal.foto.path)
+
         return Animal
 
 
-class AnimalForm(ModelForm):
+class TakeAnimalForm(ModelForm):
     def __init__(self, request, *args, **kwargs):
         self.user = request.user
-        super(AnimalForm, self).__init__(*args, **kwargs)
+        super(TakeAnimalForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update({'class': 'form-control'})
 

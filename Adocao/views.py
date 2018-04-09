@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
-from Adocao.forms import AnimalForm, UserForm
+from Adocao.forms import AnimalForm, UserForm, TakeAnimalForm
 from Adocao.models import Animal
 
 
@@ -25,9 +25,7 @@ def newAnimal(request):
     if request.method == 'POST':
         form = AnimalForm(request, request.POST, request.FILES)
         if form.is_valid():
-            animal = form.save(commit=False)
-            animal.usuarioAlteracao = request.user
-            animal.save()
+            form.save()
             return HttpResponseRedirect(reverse('index'))
     else:
         form = AnimalForm(request)
@@ -54,14 +52,14 @@ def editAnimal(request, idAnimal):
 def takeAnimal(request, idAnimal):
     animal = get_object_or_404(Animal, pk=idAnimal)
     if request.method == 'POST':
-        form = AnimalForm(request, request.POST, request.FILES, instance=animal)
+        form = TakeAnimalForm(request, request.POST, request.FILES, instance=animal)
         if form.is_valid():
             animal.usuarioAdotou = request.user
             animal.adotado = True
             form.save()
             return HttpResponseRedirect(reverse('index'))
     else:
-        form = AnimalForm(request, instance=animal)
+        form = TakeAnimalForm(request, instance=animal)
 
     return render(request, 'adocao/takeAnimal.html', {'animal': animal, 'form': form, })
 

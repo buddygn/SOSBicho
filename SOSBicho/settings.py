@@ -131,7 +131,7 @@ MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 
 MEDIA_URL = '/SOSBicho/media/'
 
-STATIC_URL = '/static/'
+STATIC_URL = '/SOSBicho/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 

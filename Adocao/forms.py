@@ -16,12 +16,12 @@ class AnimalForm(ModelForm):
     def __init__(self, request, *args, **kwargs):
         self.user = request.user
         super(AnimalForm, self).__init__(*args, **kwargs)
-        for field in iter(self.fields):
-            self.fields[field].widget.attrs.update({'class': 'form-control'})
+       # for field in iter(self.fields):
+       #     self.fields[field].widget.attrs.update({'class': 'form-control'})
 
     class Meta:
         model = Animal
-        exclude = [ 'usuarioAlteracao']
+
         widgets = {
             'observacao': Textarea(attrs={'rows': 3}),
         }

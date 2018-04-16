@@ -21,7 +21,7 @@ class AnimalForm(ModelForm):
 
     class Meta:
         model = Animal
-
+        exclude = ['usuarioAlteracao']
         widgets = {
             'observacao': Textarea(attrs={'rows': 3}),
         }

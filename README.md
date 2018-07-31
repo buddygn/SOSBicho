@@ -1,2 +1,3 @@
 # SOSBicho
-T2 - TAC II 
+
+Trabalho desenvolvido usando python + django para cadeira de TAC II 
